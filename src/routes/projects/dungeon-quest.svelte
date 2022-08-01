@@ -112,6 +112,11 @@
 
         .main-cover{
         padding-bottom: 50%;
+        height: var(--header-height);
+        }
+
+        .main{
+            top: var(--header-height);
         }
 
     }
@@ -120,6 +125,10 @@
 
         .text{
             padding: 1em 5% 1em 5%;
+            font-size: 1.5em;
+        }
+
+        h1{
             font-size: 1.75em;
         }
 

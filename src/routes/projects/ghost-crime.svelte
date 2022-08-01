@@ -50,6 +50,8 @@
         --orange: #f27127;
         --blue: #777df2;
         --green: #3be0bf;
+
+        --header-height: 56.35px;
     }
 
     div{
@@ -58,7 +60,7 @@
 
     .main-cover{
         width: 100%;
-        height: 0em;
+        height: 0;
         padding-bottom: 40%;
         opacity: 0;
     }
@@ -110,6 +112,11 @@
 
         .main-cover{
         padding-bottom: 50%;
+        height: var(--header-height);
+        }
+
+        .main{
+            top: var(--header-height);
         }
 
     }
@@ -118,6 +125,10 @@
 
         .text{
             padding: 1em 5% 1em 5%;
+            font-size: 1.5em;
+        }
+
+        h1{
             font-size: 1.75em;
         }
 
