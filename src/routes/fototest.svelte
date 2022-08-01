@@ -7,11 +7,39 @@
 
     const dirsx = [1,1,0,-1,-1,-1,0,1]
     const dirsy = [0,1,1,1,0,-1,-1,-1]
-
+    
     const width = 160
     const height = 90
     
+    let mousex = 0
+    let mousey = 0
+    let mousedown = false
+    
+    let canvas_width = 0
+    
     onMount(() => {
+
+        const canvas = document.querySelector("#canvas");
+        const canvascontext = canvas.getContext("2d");
+        
+        function mousemove(event){
+            mousex = parseInt(event.clientX / window.outerWidth * width)
+            mousey = parseInt(event.clientY / window.outerHeight * height)
+        }
+
+        window.addEventListener('mousemove', mousemove);
+
+        window.addEventListener('mousedown', () => {
+            if (window.outerWidth > 1000){
+                mousedown = true
+            }
+        })
+
+        window.addEventListener('mouseup', () => {
+            mousedown = false
+        })
+
+
 
         function step(){
             const w = width
@@ -61,8 +89,6 @@
 
         generate_grid()
         
-        const canvas = document.querySelector("#canvas");
-        const canvascontext = canvas.getContext("2d");
         
         let image = new Image();
             
@@ -99,6 +125,16 @@
                 data[i*4 + 1] = data_value
                 data[i*4 + 2] = data_value * 2.25
             }
+
+            if (mousedown){
+                for (let i = 0; i < 3; i++){
+                    data[((width * mousey) + mousex) * 4+i] = 255
+                    data[((width * mousey) + mousex+1) * 4+i] = 255
+                    data[((width * mousey) + mousex-1) * 4+i] = 255
+                    data[((width * (mousey+1)) + mousex) * 4+i] = 255
+                    data[((width * (mousey-1)) + mousex) * 4+i] = 255
+                }
+            }
             
             canvascontext.putImageData(imagedata, 0, 0)
             
@@ -110,6 +146,15 @@
             setTimeout(function() {
 
                 step()
+
+                if (mousedown){
+                    grid[mousey * width + mousex] = 1
+                    grid[mousey * width + mousex+1] = 1
+                    grid[mousey * width + mousex-1] = 1
+                    grid[(mousey+1) * width + mousex] = 1
+                    grid[(mousey-1) * width + mousex] = 1
+                }
+
                 render_image()
 
                 requestAnimationFrame(animate);

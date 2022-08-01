@@ -181,6 +181,12 @@
         height: 100vh;
         font-size: 3em;
         z-index: 2;
+
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+
     }
     
     @media only screen and (max-width: 860px){
