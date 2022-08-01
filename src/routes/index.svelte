@@ -157,14 +157,14 @@
     .title-box{
         display: flex;
         align-self: center;
-        width: 75%;
-        height: 75%;
+        width: 75vw;
+        height: 75vh;
         margin: 12.5%;
         overflow-x: hidden;
 
         background: rgb(0,0,0);
         background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 45%);
-        transform: scaleX(2)
+        transform: scale(2,0.75);
         
     }
 
@@ -188,6 +188,15 @@
         .about{
             padding: 1em 5% 1em 5%;
             font-size: 1.75em;
+        }
+
+        .title-box{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 70%);
+        transform: scaleY(0.75)
+        
         }
 
     }
