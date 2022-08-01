@@ -184,11 +184,23 @@
     }
     
     @media only screen and (max-width: 860px){
-        
+
         .about{
-            padding: 1em 5% 1em 5%;
-            font-size: 1.75em;
-        }
+        font-size: 1.5em;
+        padding: 1em 5% 2em 5%;
+    }
+
+    .contact{
+        padding: 1em 5% 2em 5%;
+    }
+
+    .contact > h1{
+        font-size: 2em;
+    }
+
+    .projects > h1{
+        font-size: 3em;
+    }
 
         .title-box{
         width: 100%;
