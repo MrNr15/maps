@@ -107,8 +107,8 @@
         margin: auto;
         background: var(--white);
 
-        border-top-left-radius: 10em;
-        border-top-right-radius: 10em;
+        border-top-left-radius: 5em;
+        border-top-right-radius: 5em;
     }
 
     .projects{
