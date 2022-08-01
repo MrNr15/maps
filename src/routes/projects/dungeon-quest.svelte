@@ -111,8 +111,8 @@
         }
 
         .main-cover{
-        padding-top: 50%;
-    }
+        padding-bottom: 50%;
+        }
 
     }
 

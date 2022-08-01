@@ -98,7 +98,7 @@
 
     .image{
         z-index: -1;
-        width: 100%;
+        width: 100vw;
     }
     
     .text{
@@ -136,6 +136,10 @@
         .main-body{
             width: 100vw;
         }
+
+        .main-cover{
+        padding-bottom: 50%;
+        }
         
     }
 
@@ -149,7 +153,7 @@
         }
 
         .equation{
-            padding: 2em;
+            padding: 2em 0 2em 0;
             margin: auto;
         }
 
