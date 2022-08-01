@@ -177,8 +177,8 @@
         vertical-align: middle;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         font-size: 3em;
         z-index: 2;
     }
@@ -196,7 +196,12 @@
         margin: 0;
         background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 70%);
         transform: scaleY(0.75)
-        
+        }
+
+        h2{
+            width: 80vw;
+            padding-left: 10vw;
+            font-size: 2em;
         }
 
     }

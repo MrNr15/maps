@@ -132,6 +132,8 @@
         --orange: #f27127;
         --blue: #777df2;
         --green: #3be0bf;
+
+        --header-height: 56.35px;
     }
 
     div{
@@ -277,6 +279,10 @@
         .header-right{
             display: none;
             visibility: hidden;
+        }
+
+        .title{
+            font-size: 0.75em;
         }
 
     }

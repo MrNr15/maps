@@ -80,4 +80,22 @@
         color: white;
         font-family: "ubuntu";
     }
+
+    @media only screen and (max-width: 1040px){
+        
+        div{
+        transform: scale(0.9,0.9);
+        }
+
+    div:hover{
+        background-color: #e6844c;
+        transform: scale(1,1);
+    }
+
+    div:active{
+        transform: scale(0.8,0.8);
+    }
+
+    }
+
 </style>
