@@ -43,7 +43,7 @@
     }
 
     div:active{
-        transform: scale(0.9,0.9);
+        transform: scale(0.95,0.95);
     }
 
     .green{
@@ -93,7 +93,7 @@
     }
 
     div:active{
-        transform: scale(0.8,0.8);
+        transform: scale(0.85,0.85);
     }
 
     }
