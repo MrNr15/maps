@@ -7,7 +7,7 @@
         color: "green"
     },{
         name: "Dungeon Quest",
-        image: "https://img.itch.zone/aW1nLzc2NDkwODIucG5n/315x250%23c/PGAZQq.png",
+        image: "dungeon-quest-pre.png",
         url: "./projects/dungeon-quest",
         color: "blue"
     },{
