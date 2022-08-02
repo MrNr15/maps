@@ -189,6 +189,11 @@
         padding: 0em 0.5em 0em 0.5em;
         text-decoration: none;
         color: var(--white);
+
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
     }
 
     .nav__links{

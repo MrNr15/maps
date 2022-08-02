@@ -157,14 +157,14 @@
     .title-box{
         display: flex;
         align-self: center;
-        width: 75vw;
-        height: 75vh;
-        margin: 12.5%;
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
         overflow-x: hidden;
 
         background: rgb(0,0,0);
-        background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 45%);
-        transform: scale(2,0.75);
+        background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 50%);
+        transform: scale(1,0.50);
         
     }
 
@@ -208,24 +208,24 @@
         font-size: 3em;
     }
 
-        .title-box{
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 70%);
-        transform: scaleY(0.75)
-        }
-
-        h2{
-            width: 80vw;
-            padding-left: 10vw;
-            font-size: 2em;
-        }
-
+    
+    h2{
+        width: 80vw;
+        padding-left: 10vw;
+        font-size: 2em;
     }
+    
+}
 
-    @media only screen and (max-width: 1100px){
-
+@media only screen and (max-width: 1100px){
+    
+    .title-box{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 70%);
+    transform: scaleY(0.50)
+    }
         .main-body{
             width: 100%;
         }

@@ -23,14 +23,14 @@
         const canvascontext = canvas.getContext("2d");
         
         function mousemove(event){
-            mousex = parseInt(event.clientX / window.outerWidth * width)
-            mousey = parseInt(event.clientY / window.outerHeight * height)
+            mousex = parseInt(event.clientX / canvas.offsetWidth * width)
+            mousey = parseInt(event.clientY / canvas.offsetHeight * height)
         }
 
         window.addEventListener('mousemove', mousemove);
 
         window.addEventListener('mousedown', () => {
-            if (window.outerWidth > 1000){
+            if (window.outerWidth > 10){
                 mousedown = true
             }
         })
