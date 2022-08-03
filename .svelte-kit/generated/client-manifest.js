@@ -11,8 +11,7 @@ export const components = [
 	() => import("../../src/routes/index.svelte"),
 	() => import("../../src/routes/projects/dungeon-quest.svelte"),
 	() => import("../../src/routes/projects/ghost-crime.svelte"),
-	() => import("../../src/routes/projects/solar-sim.svelte"),
-	() => import("../../src/routes/test.svelte")
+	() => import("../../src/routes/projects/solar-sim.svelte")
 ];
 
 export const dictionary = {
@@ -22,7 +21,6 @@ export const dictionary = {
 	"gamecart": [[0, 4], [1]],
 	"hamburgertutorial": [[0, 5], [1]],
 	"header": [[0, 6], [1]],
-	"test": [[0, 11], [1]],
 	"projects/dungeon-quest": [[0, 8], [1]],
 	"projects/ghost-crime": [[0, 9], [1]],
 	"projects/solar-sim": [[0, 10], [1]]
