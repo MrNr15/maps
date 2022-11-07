@@ -95,6 +95,8 @@
         margin: auto;
         margin-top: 0;
         background-color: var(--white);
+        border-top-left-radius: 5em;
+        border-top-right-radius: 5em;
     }
 
     .image{
