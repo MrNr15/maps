@@ -21,6 +21,8 @@
             <h1>
                 Realistic orbital simulation
             </h1>
+            <a href="https://mrnr15.itch.io/solar-sim" class="link">Play it yourself here</a>
+            <p></p>
             <div class="box">
                 <div class="article">
                     This simulation of planets uses a real physics equation to calculate their trajectory in real time. This allows me to experiment with more chaotic ways planets and moons can form a system then our real solar system.
@@ -30,7 +32,6 @@
                 </div>
                 <img class="equation" src="../Equation.png" alt="Gravity Equation">
             </div>
-            <a href="https://mrnr15.itch.io/solar-sim" class="link">Play it yourself here</a>
         </div>
         
         
@@ -125,6 +126,8 @@
     .link{
         width: 100%;
         margin: auto;
+        font-size: 150%;
+        text-decoration: none;
     }
 
     .article{

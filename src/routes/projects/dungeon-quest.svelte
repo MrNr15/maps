@@ -19,13 +19,14 @@
             <h1>
                 Game and Website
             </h1>
+            <a class="important" href="https://dungeonquest-mrnr15.netlify.app/">play it yourself here</a>
+            <p></p>
                 <div class="article">
                     In this little game you play as a knight who is tasked to save the kingdoms princess. I made the game in Phaser 3 Javascript as a part of a 2 week intership project at 
-                    <a href="https://www.webmen.de/">Webmen</a> in 2022 where I learned Javascript as well as html/css.
+                    <a href="https://www.webmen.de/">Webmen</a> in 2022 where I learned Javascript as well as HTML/CSS.
                     Together with this game I made a website from scratch to encapsulate it. The game is a simple 2D platformer in which you must kill all enemys to go to the next of 6 levels. You can also find 5 secret chests across the game.
                     The website is one page which has the game as well as some information on the game and screenshots.
                 </div>
-            <a href="https://dungeonquest-mrnr15.netlify.app/">Check it out here</a>
         </div>
         
         
@@ -56,6 +57,11 @@
 
     div{
         margin: 0em;
+    }
+
+    .important{
+        font-size: 150%;
+        text-decoration: none;
     }
 
     .main-cover{

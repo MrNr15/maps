@@ -19,12 +19,13 @@
             <h1>
                 Atmospheric Minigame
             </h1>
+            <a class="important" href="https://mrnr15.itch.io/ghost-crime">Play it yourself here</a>
+            <p></p>
                 <div class="article">
                     This is a game that I made as an entry to the <a href="https://itch.io/jam/godot-wild-jam-43">Godot Wild Jam 43</a> in just one week using the Godot Game Engine.
                     You are a ghost who goes back to his house to collect things from his past. But because stealing from the real world is illegal by ghost law, other ghosts will try to stop you. 
                     This is a project where I not only programmed the hole game but I also made all of the graphics on my own to create a more cineamtic and atmospheric experience.
                 </div>
-            <a href="https://mrnr15.itch.io/ghost-crime">Play it yourself here</a>
         </div>
         
         
@@ -33,6 +34,11 @@
 <Footer></Footer>
 
 <style>
+
+    .important{
+        font-size: 150%;
+        text-decoration: none;
+    }
 
     *{
         font-family: "ubuntu";
