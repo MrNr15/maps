@@ -51,7 +51,7 @@
     
     <div class="about" id="about">
         <h1>About Me</h1>
-        I am a german high school student who loves games and has set their mind on making their own.
+        My name is Meik Schiebenhöfer. I am a german high school student who loves games and has set their mind on making their own.
         I have been making games in my free time since 2018 mainly using the Godot Game Engine and started releasing games in 2021. I not only have experience in programming but also in game design and graphic design.
         I have also made websites (like this one) using HTML, CSS and Javascript. Besides that I also have some expierience in Unity, Game Maker Studio, Java and Phython as well.
     </div>
