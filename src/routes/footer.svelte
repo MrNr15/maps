@@ -3,11 +3,11 @@
     <div class="contact">
         Contact:
         <br>
-        Email: <a href="mailto:2604meik@gmail.com">2604meik@gmail.com</a>
+        Email: <a class="contact-link" href="mailto:2604meik@gmail.com">2604meik@gmail.com</a>
         <br>
         Discord: Mr.Nr.15#0133
         <br>
-        Twitter: <a href="https://twitter.com/Mr_Nr_15">@Mr_Nr_15</a>
+        Twitter: <a class="contact-link" href="https://twitter.com/Mr_Nr_15">@Mr_Nr_15</a>
     </div>
     <div class="sitemap">
         Site map:
@@ -36,6 +36,10 @@
         --orange: #f27127;
         --blue: #777df2;
         --green: #3be0bf;
+    }
+
+    .contact.link{
+        text-decoration: none;
     }
 
     div{

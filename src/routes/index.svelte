@@ -59,11 +59,11 @@
     <div class="contact" id="contact">
         <h1>Contact</h1>
         <br>
-        Email: <a href="mailto:2604meik@gmail.com">2604meik@gmail.com</a>
+        Email: <a class="contact-link" href="mailto:2604meik@gmail.com">2604meik@gmail.com</a>
         <br>
         Discord: Mr.Nr.15#0133
         <br>
-        Twitter: <a href="https://twitter.com/Mr_Nr_15">@Mr_Nr_15</a>
+        Twitter: <a class="contact-link" href="https://twitter.com/Mr_Nr_15">@Mr_Nr_15</a>
     </div>
 
 </div>
@@ -87,6 +87,10 @@
         --green: #3be0bf;
 
         margin: 0;
+    }
+
+    .contact-link{
+        text-decoration: none;
     }
 
     :global(body){
