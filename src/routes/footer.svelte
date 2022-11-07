@@ -38,7 +38,7 @@
         --green: #3be0bf;
     }
 
-    .contact.link{
+    .contact-link{
         text-decoration: none;
     }
 
