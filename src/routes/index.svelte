@@ -13,7 +13,6 @@
         var mouse_y = 0
         var mousedown = false
 
-        
         image_zoom("image-zoom")
         
         function image_zoom(resultID){
@@ -26,11 +25,11 @@
             result.style.backgroundSize = 500 + "px " +300 + "px"
         
             main.addEventListener("mousemove", movelens)
-            main.addEventListener("touchmove", movelens)
+            main.addEventListener("touchmove", touchlens)
             main.addEventListener("mousedown", mousedown)
             main.addEventListener("mouseup", mouseup)
-            main.addEventListener("touchdown", mousedown)
-            main.addEventListener("touchup", mouseup)
+            main.addEventListener("touchstart", touchdown)
+            main.addEventListener("touchend", mouseup)
 
             function movelens(e){
                 if (mousedown){
@@ -44,12 +43,32 @@
                 }
             }
 
-            function mousedown(){
+            function touchlens(e){
+                if (mousedown){
+                    var e = window.event;
+                    var x = e.touches[0].clientX - mouse_x + start_x
+                    var y = e.touches[0].clientY - mouse_y + start_y
+                    result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
+                    result.style.backgroundSize = "100%"
+                    map_x = x
+                    map_y = y
+                }
+            }
+
+            function mousedown(e){
                 var e = window.event;
                 mousedown = true
                 mouse_x = e.clientX
                 mouse_y = e.clientY
             }
+
+            function touchdown(e){
+                var e = window.event;
+                mousedown = true
+                mouse_x = e.touches[0].clientX;
+                mouse_y = e.touches[0].clientY;
+            }
+
             function mouseup(){
                 mousedown = false
                 start_x = map_x
