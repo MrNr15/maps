@@ -2,27 +2,31 @@
 <script>
 
     import { onMount } from 'svelte';
+    import { missing_component } from 'svelte/internal';
 
+    var zoom = 100
+    var start_x = 0
+    var start_y = 0
+    var map_x = 0
+    var map_y = 0
+    var mouse_x = 0
+    var mouse_y = 0
+    var mousedown = false
+    var result
+    var floor = 1
     onMount(() => {
 
-        var start_x = 0
-        var start_y = 0
-        var map_x = 0
-        var map_y = 0
-        var mouse_x = 0
-        var mouse_y = 0
-        var mousedown = false
+
 
         image_zoom("image-zoom")
         
         function image_zoom(resultID){
             
-            var result
             var main = document.getElementById("main")
             result = document.getElementById(resultID)
         
-            result.style.backgroundImage = "url('../Map.png')"
-            result.style.backgroundSize = 500 + "px " +300 + "px"
+            result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+            result.style.backgroundSize = zoom + "%"
         
             main.addEventListener("mousemove", movelens)
             main.addEventListener("touchmove", touchlens)
@@ -36,10 +40,15 @@
                     var e = window.event;
                     var x = e.clientX - mouse_x + start_x
                     var y = e.clientY - mouse_y + start_y
+                    x = Math.max(Math.min(0,x), -window.innerWidth*zoom/100 + window.innerWidth)
+                    y = Math.max(Math.min(0,y), -window.innerHeight*zoom/((window.innerHeight/1280*2560)/window.innerWidth * 100) + window.innerHeight)
                     result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
-                    result.style.backgroundSize = "100%"
+                    result.style.backgroundSize = zoom + "%"
+                    window.height
                     map_x = x
                     map_y = y
+
+                    console.log(x, " ", window.innerHeight)
                 }
             }
 
@@ -49,7 +58,7 @@
                     var x = e.touches[0].clientX - mouse_x + start_x
                     var y = e.touches[0].clientY - mouse_y + start_y
                     result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
-                    result.style.backgroundSize = "100%"
+                    result.style.backgroundSize = zoom + "%"
                     map_x = x
                     map_y = y
                 }
@@ -75,16 +84,64 @@
                 start_y = map_y
             }
 
+            mouseup()
+            update()
+
     }
+
     
 })
+function zoomin(){
+    if (zoom != 400){
+        zoom *= 2
+        update()
+    }
+}
+function zoomout(){
+    if (zoom != 100){
+        zoom /= 2
+        update()
+    }
+}
+function floorup(){
+    if (floor != 3){
+        floor += 1
+        result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+    }
+}
+function floordown(){
+    if (floor != 1){
+        floor -= 1
+        result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+    }
+}
+function update(){
+        var e = window.event;
+        var x = start_x
+        var y = start_y
+        result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
+        result.style.backgroundSize = zoom + "%"
+}
 </script>
 
-<meta name="viewport" content="width=device-width, inital-scale=1">
+<meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
 
 <div id="main" class="main">
     <div class="img-wrapper">
-        <div id="image-zoom" class="img-zoom-result"></div>
+        <div id="image-zoom" class="img-zoom-result">
+            <button on:click={zoomin}>
+                +
+            </button>
+            <button on:click={zoomout}>
+                -
+            </button>
+            <button on:click={floorup}>
+                Floor up
+            </button>
+            <button on:click={floordown}>
+                Floor down
+            </button>
+        </div>
     </div>
 
 </div>
@@ -114,9 +171,10 @@
     }
 
     .img-zoom-result{
-        background-color: black;
+        background-color: white;
         width: 100%;
         height: 100vh;
+        background-repeat: no-repeat;
     }
 
     .img{
