@@ -62,9 +62,9 @@
             function touchlens(e){
                 if (mousedown){
                     var e = window.event;
-                    var x = e.touches[0].clientX - mouse_x + start_x
-                    var y = e.touches[0].clientY - mouse_y + start_y
-                    result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
+                    var x = (e.touches[0].clientX - mouse_x)/zoom*100 + start_x
+                    var y = (e.touches[0].clientY - mouse_y)/zoom*100 + start_y
+                    result.style.backgroundPosition = "" + parseInt(x*zoom/100 + window.innerWidth/2) + "px " + parseInt(y*zoom/100 + window.innerHeight/2) + "px"
                     map_x = x
                     map_y = y
                 }
