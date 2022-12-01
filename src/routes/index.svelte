@@ -14,6 +14,7 @@
     var mousedown = false
     var result
     var floor = 1
+    var standart_scale = 1
     onMount(() => {
 
 
@@ -26,7 +27,11 @@
             result = document.getElementById(resultID)
         
             result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+            standart_scale = 1/(window.innerWidth/window.innerHeight*1280/2560)
+            //console.log(standart_scale)
+            //zoom *= standart_scale
             result.style.backgroundSize = zoom + "%"
+
         
             main.addEventListener("mousemove", movelens)
             main.addEventListener("touchmove", touchlens)
@@ -35,20 +40,22 @@
             main.addEventListener("touchstart", touchdown)
             main.addEventListener("touchend", mouseup)
 
+            map_x = -window.innerWidth/2
+            map_y = -window.innerHeight/2
+
             function movelens(e){
                 if (mousedown){
                     var e = window.event;
-                    var x = e.clientX - mouse_x + start_x
-                    var y = e.clientY - mouse_y + start_y
-                    x = Math.max(Math.min(0,x), -window.innerWidth*zoom/100 + window.innerWidth)
-                    y = Math.max(Math.min(0,y), -window.innerHeight*zoom/((window.innerHeight/1280*2560)/window.innerWidth * 100) + window.innerHeight)
-                    result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
-                    result.style.backgroundSize = zoom + "%"
-                    window.height
+                    var x = (e.clientX - mouse_x)/zoom*100 + start_x
+                    var y = (e.clientY - mouse_y)/zoom*100 + start_y
+                    //x = Math.max(Math.min(-window.innerWidth/2/zoom*100,x), window.innerWidth*(-zoom/100 + 1 + 50/zoom))
+                    //y = Math.max(Math.min(-window.innerHeight/2/zoom*100,y), -window.innerHeight*zoom/((window.innerHeight/1280*2560)/window.innerWidth * 100) + window.innerHeight+window.innerHeight/2/zoom*100)
+
+                    result.style.backgroundPosition = "" + parseInt(x*zoom/100 + window.innerWidth/2) + "px " + parseInt(y*zoom/100 + window.innerHeight/2) + "px"
                     map_x = x
                     map_y = y
 
-                    console.log(x, " ", window.innerHeight)
+                    console.log(x, " ", y)
                 }
             }
 
@@ -58,7 +65,6 @@
                     var x = e.touches[0].clientX - mouse_x + start_x
                     var y = e.touches[0].clientY - mouse_y + start_y
                     result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
-                    result.style.backgroundSize = zoom + "%"
                     map_x = x
                     map_y = y
                 }
@@ -89,7 +95,20 @@
 
     }
 
-    
+    var true_zoom = 100
+
+        /*function updatePage() {
+            if (true_zoom < zoom){
+                true_zoom+=1
+            }
+            if (true_zoom > zoom){
+                true_zoom-=1
+            }
+            result.style.backgroundSize = true_zoom + "%"
+        }
+        // This will call updatePage(x) every 5000ms
+        setInterval(() => {updatePage()}, 1000/60);*/
+
 })
 function zoomin(){
     if (zoom != 400){
@@ -119,9 +138,12 @@ function update(){
         var e = window.event;
         var x = start_x
         var y = start_y
-        result.style.backgroundPosition = "" + parseInt(x) + "px " + parseInt(y) + "px"
+        result.style.backgroundPosition = "" + parseInt(x*zoom/100 + window.innerWidth/2) + "px " + parseInt(y*zoom/100 + window.innerHeight/2) + "px"
         result.style.backgroundSize = zoom + "%"
+        start_x = x
+        start_y = y
 }
+
 </script>
 
 <meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
@@ -171,11 +193,14 @@ function update(){
     }
 
     .img-zoom-result{
+        background-image: url('../Worldmap_1.jpg');
         background-color: white;
         width: 100%;
         height: 100vh;
         background-repeat: no-repeat;
         touch-action: none;
+        background-position: center;
+        background-size: cover;
     }
 
     .img{
