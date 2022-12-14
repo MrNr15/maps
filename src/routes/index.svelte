@@ -303,17 +303,11 @@ function update(){
         top: 2%;
     }
 
-    .zoom-in:active{
-        background-color: #a0a0a0;
-    }
-    .zoom-out:active{
-        background-color: #a0a0a0;
-    }
-
-    @media only screen and (max-width: 600px){
     
-    .logo{
-        width: 40%;
+    @media only screen and (max-width: 600px){
+        
+        .logo{
+            width: 40%;
         position: absolute;
         left: 30%;
     }
@@ -325,19 +319,28 @@ function update(){
         bottom: 10vh;
         left: 2vw;
     }
-
+    
     .bottom-right{
         position: absolute;
         bottom: 10vh;
         right: 2vw;
     }
-
+    
+}
+@media only screen and (min-width: 800px){
+    
     .zoom-in:hover{
         background-color: #e0e0e0;
     }
     .zoom-out:hover{
         background-color: #e0e0e0;
     }
+}
+.zoom-in:active{
+    background-color: #a0a0a0;
+}
+.zoom-out:active{
+    background-color: #a0a0a0;
 }
 
 </style>
