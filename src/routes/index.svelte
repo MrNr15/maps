@@ -293,7 +293,7 @@ function update(){
     }
 
     .logo{
-        width: 20%;
+        width: 10%;
         position: absolute;
         left: 2%;
         top: 2%;
