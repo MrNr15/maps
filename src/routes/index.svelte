@@ -20,6 +20,14 @@
             zoom = 200
         }
 
+        const resizer = () => {
+    document.getElementById("content").style.height = window.innerHeight + "px";
+}
+
+window.addEventListener("resize", (_e) => resizer());
+
+document.addEventListener("DOMContentLoaded", (_e) => resizer());
+
 
 
         image_zoom("image-zoom")
@@ -312,13 +320,13 @@ function update(){
     
     .bottom-left{
         position: absolute;
-        bottom: 10vw;
+        bottom: 10vh;
         left: 2vw;
     }
 
     .bottom-right{
         position: absolute;
-        bottom: 10vw;
+        bottom: 10vh;
         right: 2vw;
     }
 }
