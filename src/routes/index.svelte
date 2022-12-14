@@ -21,8 +21,8 @@
         }
 
         const resizer = () => {
-    document.getElementById("content").style.height = window.innerHeight + "px";
-}
+            document.getElementById("image-zoom").style.height = window.innerHeight + "px";
+        }
 
 window.addEventListener("resize", (_e) => resizer());
 
@@ -159,6 +159,8 @@ function set_floor_text(){
         }
 }
 function update(){
+        window.scrollY = 0
+        window.scrollX = 0
         var e = window.event;
         var x = start_x
         var y = start_y
@@ -219,7 +221,7 @@ function update(){
     }
 
     .img-zoom-result{
-        background-image: url('../Waldschule 1.jpg');
+        background-image: url('../Waldschule 1.svg');
         background-color: white;
         width: 100vw;
         height: 100vh;
@@ -259,13 +261,6 @@ function update(){
         -moz-border-radius: 0 0 2.5em 2.5em;
         border-radius: 0 0 2.5em 2.5em;
         background-color: lightgrey;
-    }
-
-    .zoom-in:hover{
-        background-color: #e0e0e0;
-    }
-    .zoom-out:hover{
-        background-color: #e0e0e0;
     }
 
     .floor_counter{
@@ -308,6 +303,13 @@ function update(){
         top: 2%;
     }
 
+    .zoom-in:active{
+        background-color: #a0a0a0;
+    }
+    .zoom-out:active{
+        background-color: #a0a0a0;
+    }
+
     @media only screen and (max-width: 600px){
     
     .logo{
@@ -328,6 +330,13 @@ function update(){
         position: absolute;
         bottom: 10vh;
         right: 2vw;
+    }
+
+    .zoom-in:hover{
+        background-color: #e0e0e0;
+    }
+    .zoom-out:hover{
+        background-color: #e0e0e0;
     }
 }
 
