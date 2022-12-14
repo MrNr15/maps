@@ -192,6 +192,7 @@ function update(){
     
     
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
     :root{
         margin: 0%;
@@ -277,7 +278,7 @@ function update(){
 
     .text{
         font-size: 1.5em;
-        font-family: "ubuntu";
+        font-family: 'Open Sans';
     }
 
     .bottom-left{
@@ -305,6 +306,20 @@ function update(){
         width: 40%;
         position: absolute;
         left: 30%;
+    }
+}
+@media only screen and (max-width: 800px){
+    
+    .bottom-left{
+        position: absolute;
+        bottom: 10vw;
+        left: 2vw;
+    }
+
+    .bottom-right{
+        position: absolute;
+        bottom: 10vw;
+        right: 2vw;
     }
 }
 
