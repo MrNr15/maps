@@ -2,7 +2,7 @@
 <script>
 
     import { onMount } from 'svelte';
-    import { missing_component } from 'svelte/internal';
+
 
     var zoom = 100
     var start_x = 0
@@ -11,11 +11,14 @@
     var map_y = 0
     var mouse_x = 0
     var mouse_y = 0
-    var mousedown = false
     var result
     var floor = 1
-    var standart_scale = 1
+    var floor_text = "EG"
     onMount(() => {
+
+        if (window.innerWidth < 800){
+            zoom = 200
+        }
 
 
 
@@ -26,8 +29,7 @@
             var main = document.getElementById("main")
             result = document.getElementById(resultID)
         
-            result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
-            standart_scale = 1/(window.innerWidth/window.innerHeight*1280/2560)
+            result.style.backgroundImage = "url('../Waldschule " + floor + ".svg')"
             //console.log(standart_scale)
             //zoom *= standart_scale
             result.style.backgroundSize = zoom + "%"
@@ -41,7 +43,7 @@
             main.addEventListener("touchend", mouseup)
 
             map_x = -window.innerWidth/2
-            map_y = -window.innerHeight/2
+            map_y = -window.innerWidth*0.75/2
 
             function movelens(e){
                 if (mousedown){
@@ -52,10 +54,9 @@
                     //y = Math.max(Math.min(-window.innerHeight/2/zoom*100,y), -window.innerHeight*zoom/((window.innerHeight/1280*2560)/window.innerWidth * 100) + window.innerHeight+window.innerHeight/2/zoom*100)
 
                     result.style.backgroundPosition = "" + parseInt(x*zoom/100 + window.innerWidth/2) + "px " + parseInt(y*zoom/100 + window.innerHeight/2) + "px"
+                    //result.style.backgroundPosition = "0px "+(window.innerHeight/2-window.innerWidth*0.75/2)+"px"
                     map_x = x
                     map_y = y
-
-                    console.log(x, " ", y)
                 }
             }
 
@@ -95,8 +96,6 @@
 
     }
 
-    var true_zoom = 100
-
         /*function updatePage() {
             if (true_zoom < zoom){
                 true_zoom+=1
@@ -111,28 +110,45 @@
 
 })
 function zoomin(){
-    if (zoom != 400){
+    if (zoom != 800){
         zoom *= 2
         update()
     }
 }
 function zoomout(){
-    if (zoom != 100){
+    if (zoom != 50){
         zoom /= 2
         update()
     }
 }
+
 function floorup(){
     if (floor != 3){
         floor += 1
-        result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+        result.style.backgroundImage = "url('../Waldschule " + floor + ".svg')"
+        set_floor_text()
     }
 }
 function floordown(){
-    if (floor != 1){
+    if (floor != 0){
         floor -= 1
-        result.style.backgroundImage = "url('../Worldmap_" + floor + ".jpg')"
+        result.style.backgroundImage = "url('../Waldschule " + floor + ".svg')"
+        set_floor_text()
     }
+}
+function set_floor_text(){
+    if (floor==0){
+            floor_text = "UG"
+        }
+        if (floor==1){
+            floor_text = "EG"
+        }
+        if (floor==2){
+            floor_text = "1.OG"
+        }
+        if (floor==3){
+            floor_text = "2.OG"
+        }
 }
 function update(){
         var e = window.event;
@@ -146,27 +162,34 @@ function update(){
 
 </script>
 
-<meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
+<svelte:head>
+	<title>Waldschule Maps</title>
+</svelte:head>
 
-<div id="main" class="main">
-    <div class="img-wrapper">
-        <div id="image-zoom" class="img-zoom-result">
-            <button on:click={zoomin}>
-                +
-            </button>
-            <button on:click={zoomout}>
-                -
-            </button>
-            <button on:click={floorup}>
-                Floor up
-            </button>
-            <button on:click={floordown}>
-                Floor down
-            </button>
+<meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
+<body style = "margin:0">
+    <div id="main" class="main">
+        <div class="img-wrapper">
+            <div id="image-zoom" class="img-zoom-result">
+                <div class="zoom bottom-left">
+                    <img src="../zoom_in.svg" class="zoom-in" on:click={zoomin}><img src="../zoom_out.svg" class="zoom-out" on:click={zoomout}>
+                </div>
+                <div class="bottom-right">
+                    <div class="floor_counter">
+                        <div class="text">
+                            {floor_text}
+                        </div>
+                    </div>
+                    <div class="zoom">
+                        <img src="../Up.svg" class="zoom-in" on:click={floorup}><img src="../Down.svg" class="zoom-out" on:click={floordown}>
+                    </div>
+                </div>
+                <img class="logo" src="../Waldschule-Schwanewede-Logo.png" alt="">
+            </div>
         </div>
     </div>
-
-</div>
+</body>
+    
     
 <style>
 
@@ -181,21 +204,15 @@ function update(){
         margin: 0;
     }
 
-    .img-wrapper{width: 100vw;
+    .img-wrapper{
+        width: 100vw;
         position: relative;
     }
 
-    .img-zoom-lens{
-        position: absolute;
-        border: 1px solid #000000;
-        width: 40px;
-        height: 40px;
-    }
-
     .img-zoom-result{
-        background-image: url('../Worldmap_1.jpg');
+        background-image: url('../Waldschule 1.jpg');
         background-color: white;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-repeat: no-repeat;
         touch-action: none;
@@ -203,8 +220,92 @@ function update(){
         background-size: cover;
     }
 
-    .img{
-        pointer-events: none;
+    .zoom{
+        margin: 0;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
     }
+
+    .zoom-in{
+        width: 3em;
+        border-style: solid solid none solid;
+        border-color: grey;
+        border-width: 0.3em;
+        padding: 0.8em;
+        -webkit-border-radius: 2.5em 2.5em 0 0;
+        -moz-border-radius: 2.5em 2.5em 0 0;
+        border-radius: 2.5em 2.5em 0 0;
+        background-color: lightgrey;
+    }
+
+    
+    .zoom-out{
+        width: 3em;
+        border-style: none solid solid solid;
+        border-color: grey;
+        border-width: 0.3em;
+        padding: 0.8em;
+        -webkit-border-radius: 0 0 2.5em 2.5em;
+        -moz-border-radius: 0 0 2.5em 2.5em;
+        border-radius: 0 0 2.5em 2.5em;
+        background-color: lightgrey;
+    }
+
+    .zoom-in:hover{
+        background-color: #e0e0e0;
+    }
+    .zoom-out:hover{
+        background-color: #e0e0e0;
+    }
+
+    .floor_counter{
+        line-height: 3em;
+        width: 3em;
+        height: 3em;
+        padding: 0.8em;
+        text-align: center;
+        border-style: solid solid solid solid;
+        border-color: grey;
+        border-width: 0.3em;
+        -webkit-border-radius: 2.5em 2.5em 2.5em 2.5em;
+        -moz-border-radius: 2.5em 2.5em 2.5em 2.5em;
+        border-radius: 2.5em 2.5em 2.5em 2.5em;
+        background-color: lightgrey;
+        margin-bottom: 1em;
+    }
+
+    .text{
+        font-size: 1.5em;
+        font-family: "ubuntu";
+    }
+
+    .bottom-left{
+        position: absolute;
+        bottom: 2vw;
+        left: 2vw;
+    }
+
+    .bottom-right{
+        position: absolute;
+        bottom: 2vw;
+        right: 2vw;
+    }
+
+    .logo{
+        width: 20%;
+        position: absolute;
+        left: 2%;
+        top: 2%;
+    }
+
+    @media only screen and (max-width: 600px){
+    
+    .logo{
+        width: 40%;
+        position: absolute;
+        left: 30%;
+    }
+}
 
 </style>
