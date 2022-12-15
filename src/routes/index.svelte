@@ -24,11 +24,8 @@
             document.getElementById("image-zoom").style.height = window.innerHeight + "px";
         }
 
-window.addEventListener("resize", (_e) => resizer());
-
-document.addEventListener("DOMContentLoaded", (_e) => resizer());
-
-
+        window.addEventListener("resize", (_e) => resizer());
+        document.addEventListener("DOMContentLoaded", (_e) => resizer());
 
         image_zoom("image-zoom")
         
@@ -37,6 +34,10 @@ document.addEventListener("DOMContentLoaded", (_e) => resizer());
             var main = document.getElementById("main")
             result = document.getElementById(resultID)
         
+            result.style.backgroundImage = "url('../Waldschule " + 0 + ".svg')"
+            result.style.backgroundImage = "url('../Waldschule " + 1 + ".svg')"
+            result.style.backgroundImage = "url('../Waldschule " + 2 + ".svg')"
+            result.style.backgroundImage = "url('../Waldschule " + 3 + ".svg')"
             result.style.backgroundImage = "url('../Waldschule " + floor + ".svg')"
             //console.log(standart_scale)
             //zoom *= standart_scale
@@ -51,18 +52,14 @@ document.addEventListener("DOMContentLoaded", (_e) => resizer());
             main.addEventListener("touchend", mouseup)
 
             map_x = -window.innerWidth/2
-            map_y = -window.innerWidth*0.75/2
+            map_y = -window.innerWidth*0.5/2
 
             function movelens(e){
                 if (mousedown){
                     var e = window.event;
                     var x = (e.clientX - mouse_x)/zoom*100 + start_x
                     var y = (e.clientY - mouse_y)/zoom*100 + start_y
-                    //x = Math.max(Math.min(-window.innerWidth/2/zoom*100,x), window.innerWidth*(-zoom/100 + 1 + 50/zoom))
-                    //y = Math.max(Math.min(-window.innerHeight/2/zoom*100,y), -window.innerHeight*zoom/((window.innerHeight/1280*2560)/window.innerWidth * 100) + window.innerHeight+window.innerHeight/2/zoom*100)
-
                     result.style.backgroundPosition = "" + parseInt(x*zoom/100 + window.innerWidth/2) + "px " + parseInt(y*zoom/100 + window.innerHeight/2) + "px"
-                    //result.style.backgroundPosition = "0px "+(window.innerHeight/2-window.innerWidth*0.75/2)+"px"
                     map_x = x
                     map_y = y
                 }
