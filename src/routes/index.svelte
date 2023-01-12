@@ -182,7 +182,7 @@ function update(){
                     <img src="../zoom_in.svg" class="zoom-in" on:click={zoomin}><img src="../zoom_out.svg" class="zoom-out" on:click={zoomout}>
                 </div>
                 <div class="bottom-right">
-                    <a href="http://bit.ly/3WnnGyS">
+                    <a href="http://bit.ly/3WnnGyS" class="help">
                         <div class="container360">
                             <img src="../360.svg" class="view360">
                         </div>
@@ -316,6 +316,10 @@ function update(){
         user-select: none;
     }
 
+    .help{
+        text-decoration: none;
+    }
+
     .container360{
         border-style: solid solid solid solid;
         border-color: #328832;
@@ -361,12 +365,12 @@ function update(){
         background-color: #e0e0e0;
     }
 
-    .view360:hover{
+    .container360:hover{
         background-color: #73df73;
     }
 }
 
-.view360:active{
+.container360:active{
         background-color: #358a35;
 }
 
