@@ -182,6 +182,9 @@ function update(){
                     <img src="../zoom_in.svg" class="zoom-in" on:click={zoomin}><img src="../zoom_out.svg" class="zoom-out" on:click={zoomout}>
                 </div>
                 <div class="bottom-right">
+                    <a href="http://bit.ly/3WnnGyS">
+                        <img src="../360.svg" class="view360" on:click={floorup}>
+                    </a>
                     <div class="floor_counter">
                         <div class="text">
                             {floor_text}
@@ -300,6 +303,20 @@ function update(){
         top: 2%;
     }
 
+    .view360{
+        width: 4em;
+        height: 4em;
+        padding: 0.4em;
+        border-style: solid solid solid solid;
+        border-color: #328832;
+        border-width: 0.3em;
+        -webkit-border-radius: 2.5em 2.5em 2.5em 2.5em;
+        -moz-border-radius: 2.5em 2.5em 2.5em 2.5em;
+        border-radius: 2.5em 2.5em 2.5em 2.5em;
+        background-color: #57c957;
+        margin-bottom: 1em;
+    }
+
     
     @media only screen and (max-width: 600px){
         
@@ -332,7 +349,16 @@ function update(){
     .zoom-out:hover{
         background-color: #e0e0e0;
     }
+
+    .view360:hover{
+        background-color: #73df73;
+    }
 }
+
+.view360:active{
+        background-color: #358a35;
+}
+
 .zoom-in:active{
     background-color: #a0a0a0;
 }
