@@ -184,7 +184,7 @@ function update(){
                 <div class="bottom-right">
                     <a href="http://bit.ly/3WnnGyS">
                         <div class="container360">
-                            <img src="../360.svg" class="view360" on:click={floorup}>
+                            <img src="../360.svg" class="view360">
                         </div>
                     </a>
                     <div class="floor_counter">
@@ -311,6 +311,9 @@ function update(){
         padding: 0.4em;
         margin: 0;
         touch-action: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     .container360{
