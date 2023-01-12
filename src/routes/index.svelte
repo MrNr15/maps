@@ -183,7 +183,9 @@ function update(){
                 </div>
                 <div class="bottom-right">
                     <a href="http://bit.ly/3WnnGyS">
-                        <img src="../360.svg" class="view360" on:click={floorup}>
+                        <div class="container360">
+                            <img src="../360.svg" class="view360" on:click={floorup}>
+                        </div>
                     </a>
                     <div class="floor_counter">
                         <div class="text">
@@ -304,15 +306,20 @@ function update(){
     }
 
     .view360{
-        width: 3.8em;
-        height: 3.8em;
-        padding: 0.5em;
+        width: 4em;
+        height: 4em;
+        padding: 0.4em;
+        margin: 0;
+    }
+
+    .container360{
         border-style: solid solid solid solid;
         border-color: #328832;
         border-width: 0.3em;
-        -webkit-border-radius: 2.5em 2.5em 2.5em 2.5em;
-        -moz-border-radius: 2.5em 2.5em 2.5em 2.5em;
-        border-radius: 2.5em 2.5em 2.5em 2.5em;
+        padding: 0;
+        -webkit-border-radius: 3em 3em 3em 3em;
+        -moz-border-radius: 3em 3em 3em 3em;
+        border-radius: 3em 3em 3em 3em;
         background-color: #57c957;
         margin-bottom: 1em;
     }
