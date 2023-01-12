@@ -310,6 +310,7 @@ function update(){
         height: 4em;
         padding: 0.4em;
         margin: 0;
+        touch-action: none;
     }
 
     .container360{
