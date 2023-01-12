@@ -304,9 +304,9 @@ function update(){
     }
 
     .view360{
-        width: 4em;
-        height: 4em;
-        padding: 0.4em;
+        width: 3.8em;
+        height: 3.8em;
+        padding: 0.5em;
         border-style: solid solid solid solid;
         border-color: #328832;
         border-width: 0.3em;
